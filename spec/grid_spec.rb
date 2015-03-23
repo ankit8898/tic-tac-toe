@@ -19,4 +19,16 @@ describe TicTacToe::Grid do
                                                   [2,0],[2,1],[2,2]])
     end
   end
+
+  describe "Cells" do
+    it "should have cells via coordinates" do
+      expect(subject.cells.collect(&:coordinate)).to match_array([[0,0],[0,1],[0,2],
+                                                                  [1,0],[1,1],[1,2],
+                                                                  [2,0],[2,1],[2,2]])
+    end
+
+    it "should have n number of cells" do
+      expect(subject.cells).to have(9).items
+    end
+  end
 end

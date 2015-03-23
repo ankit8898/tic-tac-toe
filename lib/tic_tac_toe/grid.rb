@@ -21,5 +21,10 @@ module TicTacToe
       arr
     end
 
+    def cells
+      coordinates.collect do |coordinate|
+        Cell.new(coordinate: coordinate)
+      end
+    end
   end
 end

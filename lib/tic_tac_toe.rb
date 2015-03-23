@@ -1,2 +1,7 @@
+require "awesome_print"
 require "tic_tac_toe/cell"
+require "tic_tac_toe/player"
+require "tic_tac_toe/computer"
+require "tic_tac_toe/game"
 require "tic_tac_toe/grid"
+require "tic_tac_toe/human"
