@@ -7,6 +7,5 @@ module TicTacToe
       @position = opts[:position]
       @cells    = opts[:cells]
     end
-
   end
 end

@@ -1,6 +1,9 @@
 describe TicTacToe::Game do
 
   subject {TicTacToe::Game.new}
+  let(:grid) {TicTacToe::Grid.new(size: 2)}
+  let!(:human) {TicTacToe::Human.new(name: 'Ank')}
+  let(:computer) {TicTacToe::Computer.new(name: 'Son')}
 
   describe "Human info" do
     before do
@@ -26,9 +29,24 @@ describe TicTacToe::Game do
       subject.build_computer_info
     end
 
-
     it "should have the name harcoded" do
       expect(subject.computer.name).to eq("Ninja")
+    end
+  end
+
+  describe "turns" do
+    before do
+      allow(subject).to receive(:grid).and_return(grid)
+      subject.computer = computer
+      subject.human = human
+    end
+
+    it "should have max turns available per cell" do
+      expect(subject.turns).to have(4).items
+      expect(subject.turns[0]).to match_array([computer,human])
+      expect(subject.turns[2]).to match_array([computer,human])
+      expect(subject.turns[1]).to match_array([computer,human])
+      expect(subject.turns[3]).to match_array([computer,human])
     end
   end
 
