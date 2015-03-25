@@ -3,10 +3,10 @@ module TicTacToe
 
     #belong_to :grid
 
-    attr_reader :value,:coordinate
+    attr_accessor :value,:coordinate
 
-    def initialize(opts)
-      @value    = opts[:value] || nil #[" ","X"].sample
+    def initialize(opts = {})
+      @value =  opts[:value] if opts[:value]
       @coordinate = opts[:coordinate]
     end
 

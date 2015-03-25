@@ -8,7 +8,7 @@ module TicTacToe
     def build_grid_info
       ap "Collecting information for Grid...  Size will be N * N"
       size = get_grid_size
-      @grid = Grid.new(size: size)
+      @grid = Grid.new(size: size) #.build
     end
 
     def build_human_info
@@ -40,9 +40,15 @@ module TicTacToe
       @grid.open_positions
     end
 
-    #max turns availableper cell
-    def turns
-      grid.cells.collect {[@computer,@human]}
+    def check_winner(player)
+      grid.check_winner(player)
+    end
+
+    def auto_play(player)
+      if open_positions.count > 0
+        cell = open_positions.sample
+        cell.value = player.marker
+      end
     end
   end
 end

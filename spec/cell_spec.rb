@@ -1,6 +1,10 @@
 describe TicTacToe::Cell do
 
-  subject {TicTacToe::Cell.new(value: "X",coordinate: [0,1])}
+  subject {TicTacToe::Cell.new(coordinate: [0,1])}
+
+  before do
+    allow(subject).to receive(:value).and_return("X")
+  end
 
   it "should have a value" do
     expect(subject.value).to eq("X")
@@ -14,8 +18,11 @@ describe TicTacToe::Cell do
   describe "available / occupied" do
 
     let(:cell_1) {TicTacToe::Cell.new(coordinate: [0,1])}
-    let(:cell_2)  {TicTacToe::Cell.new(value: "X",coordinate: [0,1])}
+    let(:cell_2)  {TicTacToe::Cell.new(coordinate: [0,1])}
 
+    before do
+      allow(cell_2).to receive(:value).and_return("X")
+    end
     it "should be available?" do
       expect(cell_1.available?).to be_truthy
       expect(cell_1.occupied?).to be_falsey

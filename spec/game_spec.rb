@@ -34,20 +34,4 @@ describe TicTacToe::Game do
     end
   end
 
-  describe "turns" do
-    before do
-      allow(subject).to receive(:grid).and_return(grid)
-      subject.computer = computer
-      subject.human = human
-    end
-
-    it "should have max turns available per cell" do
-      expect(subject.turns).to have(4).items
-      expect(subject.turns[0]).to match_array([computer,human])
-      expect(subject.turns[2]).to match_array([computer,human])
-      expect(subject.turns[1]).to match_array([computer,human])
-      expect(subject.turns[3]).to match_array([computer,human])
-    end
-  end
-
 end

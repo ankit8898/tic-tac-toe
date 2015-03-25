@@ -41,7 +41,7 @@ module TicTacToe
 
     #build cells via coordinates
     def cells
-      coordinates.collect {|coordinate| Cell.new(coordinate: coordinate)}
+      @cells ||= coordinates.collect {|coordinate| Cell.new(coordinate: coordinate)}
     end
 
     #Rows in the grid
@@ -77,22 +77,49 @@ module TicTacToe
       end
     end
 
+    #open cell in grid
     def open_positions
       cells.select {|cell| cell.available?}
     end
 
+    ##occupied cells in grid
     def occupied_positions
       cells.select {|cell| cell.occupied?}
     end
 
-
+    #just for visualization
+    #
+    #     [0] "@  X  X",
+    #     [1] "@  @  X",
+    #     [2] "@  X  X"
+    #
     def visualize
-      ap "        *** Current board ***          "
       aa = rows.collect do |row|
         row.cells.collect(&:value).join("  ")
       end
       ap aa
-      ap "****************************************"
+    end
+
+    def winner_via_row?(player)
+      rows.any? do |row|
+        row.cells.all? {|cell| cell.value == player.marker}
+      end
+    end
+
+    def winner_via_column?(player)
+      columns.any? do |column|
+        column.cells.all? {|cell| cell.value == player.marker}
+      end
+    end
+
+    def winner_via_diagonal?(player)
+      diagonals.any? do |diagonal|
+        diagonal.cells.all? {|cell| cell.value == player.marker}
+      end
+    end
+
+    def winner?(player)
+      winner_via_row?(player) || winner_via_column?(player) || winner_via_diagonal?(player)
     end
   end
 end

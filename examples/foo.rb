@@ -7,8 +7,14 @@ game.build_grid_info
 
 
 
-ap game.open_positions
-game.grid.visualize
+
+def player_message(game)
+  game.open_positions.collect {|cell| "[#{cell.coordinate.x},#{cell.coordinate.y}]"}.each_with_index do |obj,i|
+    ap "#{i+1}: #{obj}"
+  end
+end
+
+player_message(game)
 #ap game.open_positions
 
 
@@ -16,3 +22,10 @@ game.grid.visualize
 #a = [" A b c", " B D W", " E W R"]
 
 #puts a.join("\n")
+
+
+
+loop do
+
+
+end
