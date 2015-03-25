@@ -40,8 +40,21 @@ module TicTacToe
       @grid.open_positions
     end
 
-    def check_winner(player)
-      grid.check_winner(player)
+    def formatted_open_positions
+      hsh = Hash.new
+      open_positions.each_with_index do |cell,i|
+        hsh["#{i+1}"] = [cell.coordinate.x,cell.coordinate.y]
+      end
+      hsh
+    end
+
+    def winner?(player)
+      grid.winner?(player)
+    end
+
+    def play(coordinate,player)
+      cell = open_positions.find {|cell| cell.coordinate.x == coordinate[0] && cell.coordinate.y == coordinate[1]}
+      cell.value = player.marker
     end
 
     def auto_play(player)

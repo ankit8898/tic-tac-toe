@@ -15,7 +15,7 @@ ap "Hello, #{game.human.name}, all the best!"
 ap "Remember your marker is '#{game.human.marker}'"
 ap "*********************************************"
 
-#sleep 2 #simulating for a little break ;)
+sleep 2 #simulating for a little break ;)
 
 game.build_computer_info
 
@@ -25,41 +25,49 @@ ap "Hello, #{game.human.name}, i am #{game.computer.name}.. You will loose .. HA
 ap "My marker is '#{game.computer.marker}'"
 ap "*********************************************"
 
-#sleep 2 #simulating for a little break ;)
+sleep 2 #simulating for a little break ;)
 
-ap "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-ap "@                                                           @"
-ap "@                                                           @"
-ap "@         ------------- GAME STARTING --------------        @"
-ap "@                                                           @"
-ap "@                                                           @"
-ap "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+TicTacToe::Helper.message_banner("Game starting")
 
 loop do
 
   computer, human = game.computer, game.human
+
   ap "#{computer.name}'s turn"
 
-  game.auto_play(computer)
+  game.auto_play(computer) #Computer plays in Auto mode
 
   game.grid.visualize
+
+  if game.winner?(computer)
+    TicTacToe::Helper.announce_winner(computer.name)
+    break
+  end
+
+  break if game.open_positions.count == 0
 
   sleep 1
 
   ap "#{human.name}'s turn"
 
-  ap "*** Available Positions ***"
-  opts = []
+  break if game.open_positions.count == 0
 
-  game.open_positions.collect {|cell| "[#{cell.coordinate.x},#{cell.coordinate.y}]"}.each_with_index do |obj,i|
-    opts << i + 1
-    ap "#{i+1}: #{obj}"
+  ap "*** Available Positions ***"
+  min = game.formatted_open_positions.keys.min.to_i
+  max = game.formatted_open_positions.keys.max.to_i
+  game.formatted_open_positions.each_pair do |key,value|
+    ap "#{key}. #{value.to_s}"
   end
 
-  ask("Select a number from above, between #{opts.min} - #{opts.max}",Integer) {|q| q.in = opts.min..opts.max}
+  selection = ask("Select a position from above, between #{min} - #{max}",Integer) {|q| q.in = min..max}
 
-  game.auto_play(human)
+  game.play(game.formatted_open_positions["#{selection}"],human)
   game.grid.visualize
+
+  if game.winner?(human)
+    TicTacToe::Helper.announce_winner(human.name)
+    break
+  end
 
   sleep 1
 
