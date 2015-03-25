@@ -8,32 +8,26 @@ module TicTacToe
     def build_grid_info
       ap "Collecting information for Grid...  Size will be N * N"
       size = get_grid_size
-      @grid = Grid.new(size: size) #.build
+      @grid = Grid.new(size: size)
     end
 
     def build_human_info
       ap "Collecting information for Player..."
       name = get_name
-      marker = get_marker
-      @human = Human.new(name: name,marker: marker)
+      @human = Human.new(name: name,marker: "X")
     end
 
     def build_computer_info
       ap "Collecting information for Computer ."
-      marker = get_marker
-      @computer = Computer.new(marker: marker)
+      @computer = Computer.new(marker: "O")
     end
 
     def get_name
       ask("What's your name?  ")
     end
 
-    def get_marker
-      ask("Select a Marker from the List (@,X,*)? ")
-    end
-
     def get_grid_size
-      ask("Select a Grid size ? eg: 3",Integer) {|q| q.in = 1..105}
+      ask("Select a Grid size",Integer) {|q| q.in = 2..100}
     end
 
     def open_positions

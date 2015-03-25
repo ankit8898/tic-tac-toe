@@ -31,7 +31,6 @@ describe TicTacToe::Game do
   describe "Human info" do
     before do
       allow(subject).to receive(:get_name).and_return("Ankit G")
-      allow(subject).to receive(:get_marker).and_return("O")
       subject.build_human_info
     end
 
@@ -41,14 +40,13 @@ describe TicTacToe::Game do
     end
 
     it "should have a marker asked" do
-      expect(subject.human.marker).to eq("O")
+      expect(subject.human.marker).to eq("X")
     end
   end
 
   describe "Computer info" do
 
     before do
-      allow(subject).to receive(:get_marker).and_return("X")
       subject.build_computer_info
     end
 

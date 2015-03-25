@@ -34,7 +34,7 @@ module TicTacToe
       @game.build_computer_info
 
       ap "*********************************************"
-      ap "Hello, #{@game.human.name}, i am #{@game.computer.name}... Get ready to loose! Hahah"
+      ap "Hello, #{@game.human.name}, i am #{@game.computer.name}... Get ready to lose! Hahah"
       ap "My marker is '#{@game.computer.marker}'"
       ap "*********************************************"
 
