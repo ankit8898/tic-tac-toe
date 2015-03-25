@@ -96,7 +96,7 @@ module TicTacToe
     def step_3
       @game.build_computer_info
       ap "*********************************************"
-      ap "Hello, #{@game.human.name}, i am #{@game.computer.name}... Get ready to lose! Hahah"
+      ap "Hello, #{@game.human.name}, i am #{@game.computer.name} (Computer)... Get ready to lose! Hahah"
       ap "My marker is '#{@game.computer.marker}'"
       ap "*********************************************"
     end

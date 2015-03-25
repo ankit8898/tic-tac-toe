@@ -23,11 +23,11 @@ module TicTacToe
     end
 
     def get_name
-      ask("What's your name?  ")
+      ask("What's your name?  ") { |q| q.default = "Player 1" }
     end
 
     def get_grid_size
-      ask("Select a Grid size Eg: 3",Integer) {|q| q.in = 2..100}
+      ask("Enter a Grid size Eg: 3",Integer) {|q| q.in = 2..100}
     end
 
     def open_positions

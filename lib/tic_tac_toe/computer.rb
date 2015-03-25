@@ -5,7 +5,7 @@ module TicTacToe
 
     def initialize(opts = {})
       super
-      @name = "Ninja" #just a fake name for computer
+      @name =  "Ninja" #just a fake name for computer
     end
   end
 end

@@ -110,18 +110,33 @@ module TicTacToe
       ap aa
     end
 
+    # Winner methods (winner_via_row?, winner_via_column?, winner_via_diagonal? )
+    # can be also written via this meta programming approach.
+    # For the ease of understanding , they are written separately.
+
+    # ['row','column','diagonal'].each do |type|
+    #   define_method("winner_via_#{type}?") do |player|
+    #     send("#{type}s").any? do |t|
+    #       t.cells.all? {|cell| cell.value == player.marker}
+    #     end
+    #   end
+    # end
+
+    # Checks if winner is because of consecutive ticks in row
     def winner_via_row?(player)
       rows.any? do |row|
         row.cells.all? {|cell| cell.value == player.marker}
       end
     end
 
+    # Checks if winner is because of consecutive  ticks in column
     def winner_via_column?(player)
       columns.any? do |column|
         column.cells.all? {|cell| cell.value == player.marker}
       end
     end
 
+    # Checks if winner is because of consecutive  ticks in diagonal
     def winner_via_diagonal?(player)
       diagonals.any? do |diagonal|
         diagonal.cells.all? {|cell| cell.value == player.marker}
@@ -131,5 +146,6 @@ module TicTacToe
     def winner?(player)
       winner_via_row?(player) || winner_via_column?(player) || winner_via_diagonal?(player)
     end
+
   end
 end
