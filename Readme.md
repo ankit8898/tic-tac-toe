@@ -11,6 +11,7 @@
 
 ```ruby
 
+$ bundle install
 $ruby examples/play.rb 
 
 ```
