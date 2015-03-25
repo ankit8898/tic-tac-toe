@@ -33,7 +33,7 @@ The Alogorithm scans all 3 combinations after every move.
 ```ruby
 
 $ bundle install
-$ bundle exec rake #starts the game
+$ bundle exec rake play #starts the game
 
 ```
 
