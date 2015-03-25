@@ -1,3 +1,6 @@
+# This class is dirty, the idea for this class is just to pull the code that i had in example
+# and use this class via rake task to easily get started :)
+
 module TicTacToe
 
   class Play
@@ -16,27 +19,15 @@ module TicTacToe
     #this is just a container method to start, made to avoid using example/play.rb
 
     def now
-      @game.build_grid_info
+      step_1 #get grid info
 
-      ap "Initialized Grid of size: #{game.grid.size} * #{game.grid.size}"
+      sleep 1 #simulating for a little break ;)
 
-      sleep 1
-
-      @game.build_human_info
-
-      ap "*********************************************"
-      ap "Hello, #{@game.human.name}, all the best!"
-      ap "Your marker is '#{game.human.marker}'"
-      ap "*********************************************"
+      step_2 #get human info
 
       sleep 2 #simulating for a little break ;)
 
-      @game.build_computer_info
-
-      ap "*********************************************"
-      ap "Hello, #{@game.human.name}, i am #{@game.computer.name}... Get ready to lose! Hahah"
-      ap "My marker is '#{@game.computer.marker}'"
-      ap "*********************************************"
+      step_3 #get computer info
 
       sleep 2 #simulating for a little break ;)
 
@@ -44,7 +35,7 @@ module TicTacToe
 
       loop do
 
-        computer, human = game.computer, game.human
+        computer, human = @game.computer, @game.human
 
         ap "#{computer.name}'s turn"
 
@@ -87,6 +78,27 @@ module TicTacToe
 
         break if @game.open_positions.count == 0
       end
+    end
+
+    def step_1
+      @game.build_grid_info
+      ap "Initialized Grid of size: #{game.grid.size} * #{game.grid.size}"
+    end
+
+    def step_2
+      @game.build_human_info
+      ap "*********************************************"
+      ap "Hello, #{@game.human.name}, all the best!"
+      ap "Your marker is '#{game.human.marker}'"
+      ap "*********************************************"
+    end
+
+    def step_3
+      @game.build_computer_info
+      ap "*********************************************"
+      ap "Hello, #{@game.human.name}, i am #{@game.computer.name}... Get ready to lose! Hahah"
+      ap "My marker is '#{@game.computer.marker}'"
+      ap "*********************************************"
     end
   end
 end

@@ -27,7 +27,7 @@ module TicTacToe
     end
 
     def get_grid_size
-      ask("Select a Grid size",Integer) {|q| q.in = 2..100}
+      ask("Select a Grid size Eg: 3",Integer) {|q| q.in = 2..100}
     end
 
     def open_positions
