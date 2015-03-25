@@ -10,7 +10,7 @@
 
 <i>Algorithm used</i>
 
-There are various implementation available over the web for tic tac toe and for N * N Implementation.  But, we haven't used them .  
+There are various implementation available over the web for tic tac toe and [for N * N Implementation](http://stackoverflow.com/questions/4198955/how-to-find-the-winner-of-a-tic-tac-toe-game-of-any-size).  But, i haven't used them .  
 
 The winner of the Grid can be any time decided if
 
