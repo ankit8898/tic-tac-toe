@@ -16,9 +16,14 @@ The winner of the Grid can be any time decided if
 
 - We have one of the winning pattern in a Row
 
+<img src="https://raw.githubusercontent.com/ankit8898/tic-tac-toe/master/images/row.jpg" "/>
+
+
 - We have one of the winning pattern in a Column
 
+<img src="https://raw.githubusercontent.com/ankit8898/tic-tac-toe/master/images/column.jpg" "/>
 - We have one of the winning pattern in a Diagonal
+<img src="https://raw.githubusercontent.com/ankit8898/tic-tac-toe/master/images/diagonal.jpg" "/>
 
 
 The Alogorithm scans all 3 combinations after every move.
