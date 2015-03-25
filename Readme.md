@@ -28,7 +28,7 @@ The Alogorithm scans all 3 combinations after every move.
 ```ruby
 
 $ bundle install
-$ruby examples/play.rb 
+$ bundle exec rake #starts the game
 
 ```
 
@@ -52,6 +52,8 @@ We use Rspec for testing :heart:
 ![Alt text](https://raw.githubusercontent.com/ankit8898/tic-tac-toe/master/images/test.png)
 
 
+Run tests via
+
 ```ruby
-$ rspec
+$ bundle exec rspec
 ```
