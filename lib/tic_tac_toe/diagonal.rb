@@ -1,3 +1,6 @@
+#Diagonal
+#
+# A diagonal in a grid
 module TicTacToe
   class Diagonal
 

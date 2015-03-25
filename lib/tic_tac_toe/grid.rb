@@ -1,3 +1,12 @@
+# Grid
+#
+# The most important class which holds the metadata for game
+#  Has information about:
+# - All the cell
+# - All the rows
+# - All the columns
+# - All the Diagonals
+
 module TicTacToe
   class Grid
 
@@ -23,6 +32,7 @@ module TicTacToe
       arr
     end
 
+    #Raw coordinates for diagonals
     def diagonal_coordinates
       r = @size - 1
       hsh = {diagonal_one_coordinates: [],diagonal_two_coordinates: []}

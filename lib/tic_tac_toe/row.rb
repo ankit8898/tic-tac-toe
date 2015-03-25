@@ -1,3 +1,7 @@
+#Row
+#
+# Row are present in grids
+
 module TicTacToe
   class Row
 

@@ -1,3 +1,6 @@
+# Player:
+#
+# Base class for a Player, a Player can be human or computer
 module TicTacToe
   class Player
 
