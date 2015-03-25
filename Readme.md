@@ -1,5 +1,7 @@
 ## Tic tac toe
 
+<img src="https://raw.githubusercontent.com/ankit8898/tic-tac-toe/master/images/ttt.png" width="200" height="200""/>
+
 <i>Features</i>
 
 - Play against computer
