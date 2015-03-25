@@ -1,4 +1,4 @@
-## Tic tac toe
+## Tic tac toe [![Build Status](https://travis-ci.org/ankit8898/tic-tac-toe.svg?branch=master)](https://travis-ci.org/ankit8898/tic-tac-toe) [![Code Climate](https://codeclimate.com/github/ankit8898/tic-tac-toe/badges/gpa.svg)](https://codeclimate.com/github/ankit8898/tic-tac-toe) [![Test Coverage](https://codeclimate.com/github/ankit8898/tic-tac-toe/badges/coverage.svg)](https://codeclimate.com/github/ankit8898/tic-tac-toe)
 
 <img src="https://raw.githubusercontent.com/ankit8898/tic-tac-toe/master/images/ttt.png" width="200" height="200""/>
 
