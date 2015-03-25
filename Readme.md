@@ -1,6 +1,11 @@
 ## Tic tac toe
 
-For N * N grid.  Don't stop your self to a 3 * 3. :sunglasses:
+<i>Features</i>
+
+- Play against computer
+- Flexible Grid size. For N * N grid.  <b>Don't stop your self to a 3 * 3 </b>. :sunglasses:
+- Declares Winner
+
 
 ### Getting running
 
