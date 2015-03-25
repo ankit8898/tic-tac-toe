@@ -28,6 +28,19 @@ describe TicTacToe::Game do
     allow(subject).to receive(:open_positions).and_return([cell_0_0,cell_0_1,cell_0_2])
   end
 
+
+  describe "grid info" do
+
+    before do
+      allow(subject).to receive(:get_grid_size).and_return(3)
+      subject.build_grid_info
+    end
+
+    it "should have grid build" do
+      expect(subject.grid.size).to eq(3)
+    end
+  end
+
   describe "Human info" do
     before do
       allow(subject).to receive(:get_name).and_return("Ankit G")
@@ -64,11 +77,36 @@ describe TicTacToe::Game do
     end
   end
 
+  describe "open_positions" do
+    it "should return open positions" do
+      expect(subject.open_positions).to match_array([cell_0_0,cell_0_1,cell_0_2])
+    end
+  end
+
+  describe "winner?" do
+    before do
+      allow(grid).to receive(:winner?).with(player).and_return(true)
+      allow(subject).to receive(:grid).and_return(grid)
+    end
+
+    it "should have the winner via grid" do
+      expect(subject.winner?(player)).to be_truthy
+    end
+  end
+
   describe "play" do
     it "should set players selection" do
       expect(subject.open_positions[1].value).to be_nil
       subject.play([0,1],player)
       expect(subject.open_positions[1].value).to eq("X")
+    end
+  end
+
+  describe "auto play" do
+    it "should auto play" do
+      expect(subject.open_positions.collect {|cell| cell.value}).to match_array([nil,nil,nil])
+      subject.auto_play(player)
+      expect(subject.open_positions.collect {|cell| cell.value}).to match_array([nil,"X",nil])
     end
   end
 end
